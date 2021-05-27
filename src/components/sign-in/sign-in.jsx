@@ -52,7 +52,7 @@ class SignIn extends React.Component {
           <div className="d-flex justify-content-between">
             <CustomButton type="submit"> Sign in </CustomButton>
 
-            <CustomButton onClick={signInWithGoogle}>
+            <CustomButton isGoogleButton onClick={signInWithGoogle}>
               Sign in with Google
             </CustomButton>
           </div>
