@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
+import { connect } from "react-redux";
+
 import "./navbar.scss";
 
 const NavBar = ({ currentUser }) => (
@@ -23,11 +25,19 @@ const NavBar = ({ currentUser }) => (
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link">Pricing</Link>
+            <Link className="nav-link" to="/">
+              Pricing
+            </Link>
           </li>
 
           {currentUser ? (
-            <div className="nav-link option" onClick={() => auth.signOut()}>
+            <div
+              className="nav-link option"
+              onClick={() => {
+                auth.signOut();
+                console.log(currentUser);
+              }}
+            >
               Sign out
             </div>
           ) : (
@@ -43,4 +53,8 @@ const NavBar = ({ currentUser }) => (
   </nav>
 );
 
-export default NavBar;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(NavBar);
