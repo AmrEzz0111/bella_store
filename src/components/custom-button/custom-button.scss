@@ -1,5 +1,12 @@
-$primary-color: black;
-$googl-signin-color: orangered;
+$primary-background-color: black;
+$primary-color:  white;
+
+$googl-signin-background-color: orangered;
+
+$collection-item-background-color: white;
+$collection-item-color: black;
+
+
 
 
 @mixin button {
@@ -10,7 +17,6 @@ $googl-signin-color: orangered;
   line-height: 50px;
   padding: 0 35px 0 35px;
   font-size: 15px;
-  color: white;
   text-transform: uppercase;
   font-family: "Open Sans Condensed";
   font-weight: bolder;
@@ -24,8 +30,11 @@ $googl-signin-color: orangered;
   }
 }
 
+
+
 .custom-button {
-  background-color: $primary-color;
+  background-color: $primary-background-color;
+  color: $primary-color;
   @include button;
   }
 
@@ -33,5 +42,20 @@ $googl-signin-color: orangered;
 
 .google-button{
   @include button;
-  background-color: $googl-signin-color;
+  color: $primary-color;
+  background-color: $googl-signin-background-color;
 }
+
+
+.inverted{
+  background-color: $collection-item-background-color;
+  color: $collection-item-color;
+  @include button;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+  }
+}
+

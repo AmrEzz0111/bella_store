@@ -50,7 +50,7 @@ const NavBar = ({ currentUser, hidden }) => (
           )}
           <CartIcon />
         </ul>
-        {hidden ? <CartDropdown /> : null}
+        {!hidden ? <CartDropdown /> : null}
       </div>
     </div>
   </nav>
